@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files=true;
+option java_outer_classname="UserModel";
+option java_package="com.biswajitdev.models.user";
+
+message User{
+    string uuid=1;
+    string name=2;
+    string mobileNumber=3;
+    string alternateNumber=4;
+    Address address=5;
+}
+
+message Address{
+    string id=1;
+    int32 houseNo=2;
+    string addressline=3;
+    int32 pincode=4; 
+}
+
+message UserListResponse{
+    repeated User user=1;
+}
+
+message Empty{}
+
+
+service UserService{
+    rpc getAllUser(Empty) returns (UserListResponse);
+}
