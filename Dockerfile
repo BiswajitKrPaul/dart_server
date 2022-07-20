@@ -18,9 +18,8 @@ COPY --from=build /runtime/ /
 COPY --from=build app/bin/server /app/bin/
 
 ENV PORT=9090
-ENV API_URL=127.0.0.1
 
 # Start server.
 EXPOSE ${PORT}
-CMD ["sh","-c","/app/bin/server -p ${PORT} -u ${API_URL}"]
+CMD ["sh","-c","/app/bin/server -p ${PORT}"]
 

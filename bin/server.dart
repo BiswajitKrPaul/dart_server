@@ -10,8 +10,6 @@ void main(List<String> arguments) async {
   var parser = ArgParser()
     ..addOption('PORT', abbr: 'p', aliases: ['p'], mandatory: true);
   var parsed = parser.parse(arguments);
-
+  await server.serve(port: int.parse(parsed['PORT']));
   print("Server Listening on PORT ${server.port}");
-
-  await server.serve(port: parsed['PORT']);
 }
